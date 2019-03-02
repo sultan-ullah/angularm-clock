@@ -11,9 +11,6 @@ export class Time {
         this.seconds = sec;
         this.minutes = min;
         this.hours = hours;
-        this.secondStr = this.padZero(this.seconds);
-        this.minuteStr = this.padZero(this.minutes);
-        this.hourStr = this.padZero(this.hours);
     }
 
     public startTime = (): void => {
@@ -31,7 +28,6 @@ export class Time {
             this.seconds = 0;
             this.updateMinutes();
           }
-          this.secondStr = this.padZero(this.seconds);
     }
 
     private updateMinutes = (): void => {
@@ -41,7 +37,6 @@ export class Time {
           this.minutes = 0;
           this.updateHours();
         }
-        this.minuteStr = this.padZero(this.minutes);
     }
     
     private updateHours = (): void => {
@@ -50,41 +45,25 @@ export class Time {
         if (this.hours === 3) {
           this.hours = 0;
         }
-        this.hourStr = this.padZero(this.hours);
-    }
-
-    private padZero = (num: number): string => {
-        return (String(num).length === 1) ? "0" + num : "" + num; 
     }
 
     increment = (type: string) => {
         if (type === 'seconds') {
             this.seconds++;
-            this.secondStr = this.padZero(this.seconds);
-
         } else if (type === "minutes") {
             this.minutes++;
-            this.minuteStr = this.padZero(this.minutes);
-
         } else if (type === "hours") {
             this.hours++;
-            this.hourStr = this.padZero(this.hours);
-
         }
     }    
 
     decrement = (type: string) => {
         if (type === 'seconds') {
-            this.seconds--;
-            this.secondStr = this.padZero(this.seconds);
-            
+            this.seconds--;          
         } else if (type === "minutes") {
             this.minutes--;
-            this.minuteStr = this.padZero(this.minutes);
-
         } else if (type === "hours") {
             this.hours--;
-            this.hourStr = this.padZero(this.hours);
         }
     }
 }

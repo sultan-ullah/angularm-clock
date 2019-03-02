@@ -1,11 +1,12 @@
 <p>
   clock works!
 </p>
-<h2>{{myTime.hourStr}}:{{myTime.minuteStr}}:{{myTime.secondStr}}</h2>
+<h2>{{myTime.hours | formatTimeValue}}:{{myTime.minutes | formatTimeValue}}:{{myTime.seconds | formatTimeValue}}</h2>
 
 <button (click)="setTime()">Set time</button>
 <button (click)="startTime()">Start time</button>
 <button (click)="stopTime()">Stop time</button>
+
 <span *ngIf="settingTime">
   <button (click)="UpSeconds()">Up Seconds</button>
   <button (click)="DownSeconds()">Down Seconds</button>
