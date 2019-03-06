@@ -7,7 +7,10 @@ import { Time } from '../time';
   styleUrls: ['./clock.component.css']
 })
 export class ClockComponent implements OnInit {
-  myTime: Time = new Time(0, 0, 0);
+  seconds: number = 0;
+  minutes: number = 0;
+  hours: number = 12;
+  intervalVal = null;
   settingTime: boolean = false;
 
   constructor() { }
@@ -16,42 +19,87 @@ export class ClockComponent implements OnInit {
   }
 
   startTime = (): void => {
-    console.log(this);
-    this.myTime.startTime();
-    console.log("start time button clicked");
+    this.settingTime = false;
+    this.intervalVal = setInterval(this.updateSeconds, 1000);
   }
 
-  stopTime = (): void => {
-    this.myTime.stopTime();
-    console.log("stop time button clicked");
-  }
-
-  UpSeconds = (): void => {
-    this.myTime.increment('seconds');
-  }
-
-  DownSeconds = (): void => {
-    this.myTime.decrement('seconds');
-  }
-
-  UpMinutes = (): void => {
-    this.myTime.increment('minutes');
-  }
-
-  DownMinutes = (): void => {
-    this.myTime.decrement('minutes');
-  }
-
-  UpHours = (): void => {
-    this.myTime.increment('hours');
-  }
-
-  DownHours = (): void => {
-    this.myTime.decrement('hours');
-  }
+  // stopTime = (): void => {
+  //   
+  // }
 
   setTime = (): void => {
-    this.settingTime = true;
+    clearInterval(this.intervalVal);
+    if (this.settingTime) {
+      this.settingTime = false;
+    } else {
+      this.settingTime = true;
+    }
+    
   }
+
+  updateSeconds = (): void => {
+    this.seconds++;
+
+    if (this.seconds === 3) {
+        this.seconds = 0;
+        if ( this.settingTime === false) {
+          this.updateMinutes();
+        }
+    }
+  }
+
+  updateMinutes = (): void => {
+    this.minutes++;
+    if (this.minutes === 3) {
+      this.minutes = 0;
+      if ( this.settingTime === false) {
+        this.updateHours();
+      }
+    }
+  }
+
+  updateHours = (): void => {
+    this.hours++;
+
+    if (this.hours === 3) {
+      this.hours = 0;
+    }
+  }
+
+  increment = (event, type: string): void => {
+    if (type === "seconds") {
+      this.updateSeconds();
+    } else if (type === "minutes") {
+      this.updateMinutes();
+    } else if (type === "hours") {
+      this.updateHours();
+    }
+  }
+
+  decrement = (event, type: string): void => {
+    if (type === "seconds") {
+      this.seconds--;
+
+      if (this.seconds === 0) {
+        this.seconds = 59;
+      }
+
+    } else if (type === "minutes") {
+      this.minutes--;
+
+      if (this.minutes === 0) {
+        this.minutes = 59;
+      }
+
+    } else if (type === "hours") {
+      this.hours--;
+
+      if (this.hours === 0) {
+        this.hours = 12;
+      }
+
+    }
+  }
+
 
 }

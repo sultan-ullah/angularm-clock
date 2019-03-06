@@ -1,19 +1,37 @@
-<p>
-  clock works!
-</p>
-<h2>{{myTime.hours | formatTimeValue}}:{{myTime.minutes | formatTimeValue}}:{{myTime.seconds | formatTimeValue}}</h2>
 
-<button (click)="setTime()">Set time</button>
-<button (click)="startTime()">Start time</button>
-<button (click)="stopTime()">Stop time</button>
+    <div class="button-group">
+        <div class="button" (click)="setTime()">Set Time</div>
+        <div class="button" (click)="startTime()">Start Time</div>
+    </div>
 
-<span *ngIf="settingTime">
-  <button (click)="UpSeconds()">Up Seconds</button>
-  <button (click)="DownSeconds()">Down Seconds</button>
+<div class="container">
 
-  <button (click)="UpMinutes()">Up Minutes</button>
-  <button (click)="DownMinutes()">Down Minutes</button>
 
-  <button (click)="UpHours()">Up Hours</button>
-  <button (click)="DownHours()">Down Hours</button>
-</span>
+    
+  <div class="value-container">
+      <i *ngIf="settingTime" class="fas fa-angle-up fa-xs" (click)="increment($event, 'seconds')"></i>
+      <div class="time-value">{{hours | formatTimeValue}}</div>
+      <i *ngIf="settingTime"  class="fas fa-angle-down fa-xs" (click)="decrement($event, 'seconds')"></i>
+  </div>
+
+  :
+
+  <div class="value-container">
+      <i *ngIf="settingTime"  class="fas fa-angle-up fa-xs" (click)="increment($event, 'minutes')"></i>
+      <div class="time-value">{{minutes | formatTimeValue}}</div>
+      <i *ngIf="settingTime"  class="fas fa-angle-down fa-xs" (click)="decrement($event, 'minutes')"></i>
+  </div>
+
+  :
+
+  <div class="value-container">
+      <i *ngIf="settingTime"  class="fas fa-angle-up fa-xs" (click)="increment($event, 'hours')"></i>
+      <div class="time-value">{{seconds | formatTimeValue}}</div>
+      <i *ngIf="settingTime"  class="fas fa-angle-down fa-xs" (click)="decrement($event, 'hours')"></i>
+  </div>
+
+  <div class="meridian">pm</div>
+
+
+
+</div>
