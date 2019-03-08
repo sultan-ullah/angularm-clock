@@ -1,0 +1,12 @@
+
+<div class="container">
+  <div *ngIf="settingTime == 1" class="up-arrow">
+    <i class="fas fa-angle-up fa-3x"></i>
+  </div>
+  <div class="value">
+    {{timeValue | formatTimeValue}}
+  </div>
+  <div *ngIf="settingTime == 1" class="down-arrow">
+      <i class="fas fa-angle-down fa-3x"></i>
+  </div>
+</div>

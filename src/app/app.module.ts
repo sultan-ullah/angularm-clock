@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClockComponent } from './clock/clock.component';
 import { formatTimeValuePipe } from './formatTimeValue.pipe';
+import { TimeValueComponent } from './clock/time-value/time-value.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClockComponent,
-    formatTimeValuePipe
+    formatTimeValuePipe,
+    TimeValueComponent
   ],
   imports: [
     BrowserModule,

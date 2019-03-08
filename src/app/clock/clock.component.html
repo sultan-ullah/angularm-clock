@@ -1,6 +1,43 @@
+<div class="main-container">
+        <div class="top-btn-group">
+            <div class="top-btn btn">AUTO TIME</div>
+            <div class="top-btn btn" (click)="setTime()">MANUAL TIME</div>
+        </div>
+        
+    <div class="time-container">
+            <app-time-value settingTime={{settingTime}} timeValue =12></app-time-value>
+            <div class="colon">:</div>
+            <app-time-value settingTime={{settingTime}} timeValue =0></app-time-value>
+            <div class="colon">:</div>
+            <app-time-value settingTime={{settingTime}} timeValue =0></app-time-value> 
+            <div class="meridian">pm</div>   
+    </div>
+        <div class="bottom-btn btn">SET ALARM</div>
+</div>
 
 
-<div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
 
     
   <div class="value-container">
@@ -33,4 +70,4 @@
 <div class="button-group">
     <div class="button" (click)="setTime()">Set Time</div>
     <div class="button" (click)="startTime()">Start Time</div>
-</div>
+</div> -->

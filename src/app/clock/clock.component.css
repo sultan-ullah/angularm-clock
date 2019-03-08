@@ -1,78 +1,74 @@
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-
-    width: 400px;
-    height: 200px;
-    /* border: 2px solid; */
-
-    font-size: 5em;
-
+.main-container {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
+}
 
-    background: rgb(51, 58, 65);
+.time-container {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #6E6362;
     box-shadow: 4px 6px 5px black;
+    color: #EBEBD3;
+    user-select: none;
+ }
 
-    color: white;
-
+.colon {
+    font-size: 5em;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
-
-    padding: 20px;
 }
 
-.fa-angle-down, .fa-angle-up {
-    margin: 0 0;
+.meridian {
+    padding: 5px;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 2em;   
 }
- .time-value {
-     padding: 0;
-     margin: 0;
- }
- i {
-     display: block;
- }
 
- .value-container {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
- }
+.top-btn-group {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    user-select: none;
+}
 
- .meridian {
-     font-size: 0.3em;
-     margin-left: 10px;
- }
+.top-btn {
+    flex-basis: 190px;
+    height: 50px;
+    background:#335C67;
+}
 
- .button-group {
-     background: white;
-     width: 200px;
-     height: 50px;
-     position: absolute;
-     top: 25%;
-     left: 50%;
-     /* top: 50%;
-     left: 15%; */
-     transform: translate(-50%, -50%);
+.bottom-btn {
+    width: 400px;
+    height: 50px;
+    margin-top: 20px;
+    background: #C73E1D;
+    user-select: none;
+}
 
-     display: flex;
-     flex-direction: row;
- }
+.top-btn, .bottom-btn {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #EBEBD3;
+    cursor: pointer;
+    box-shadow: 4px 6px 5px black;   
+}
 
- .button {
-     background: black;
-     color: white;
-     width: 100px;
-     height: 50px;
-     padding: 10px;
-     margin-right: 10px;
-     box-sizing: border-box;
-     text-align: center;
- }
 
- 
+
+
+
+
+
+

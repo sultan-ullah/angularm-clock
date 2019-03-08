@@ -11,7 +11,7 @@ export class ClockComponent implements OnInit {
   minutes: number = 0;
   hours: number = 12;
   intervalVal = null;
-  settingTime: boolean = false;
+  settingTime: number = 0;
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class ClockComponent implements OnInit {
   }
 
   startTime = (): void => {
-    this.settingTime = false;
+    this.settingTime = 0;
     this.intervalVal = setInterval(this.updateSeconds, 1000);
   }
 
@@ -29,10 +29,10 @@ export class ClockComponent implements OnInit {
 
   setTime = (): void => {
     clearInterval(this.intervalVal);
-    if (this.settingTime) {
-      this.settingTime = false;
+    if (this.settingTime == 1) {
+      this.settingTime = 0;
     } else {
-      this.settingTime = true;
+      this.settingTime = 1;
     }
     
   }
@@ -42,7 +42,7 @@ export class ClockComponent implements OnInit {
 
     if (this.seconds === 3) {
         this.seconds = 0;
-        if ( this.settingTime === false) {
+        if ( this.settingTime === 0) {
           this.updateMinutes();
         }
     }
@@ -52,7 +52,7 @@ export class ClockComponent implements OnInit {
     this.minutes++;
     if (this.minutes === 3) {
       this.minutes = 0;
-      if ( this.settingTime === false) {
+      if ( this.settingTime === 0) {
         this.updateHours();
       }
     }
