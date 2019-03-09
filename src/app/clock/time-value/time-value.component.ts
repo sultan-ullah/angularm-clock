@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-time-value',
@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TimeValueComponent implements OnInit {
   @Input() timeValue: number;
   @Input() settingTime: boolean;
+  @Output() incrementTimeValue = new EventEmitter();
+  @Output() decrementTimeValue =  new EventEmitter();
 
   constructor() { }
 
@@ -15,5 +17,15 @@ export class TimeValueComponent implements OnInit {
     // this.settingTime = true;
     // this.timeValue = 0;
   }
+
+  upArrowClicked() {
+    this.incrementTimeValue.emit();
+  }
+
+  downArrowClicked() {
+    this.decrementTimeValue.emit();
+  }
+
+
 
 }

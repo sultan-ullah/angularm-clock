@@ -1,18 +1,39 @@
 <div class="main-container">
         <div class="top-btn-group">
-            <div class="top-btn btn">AUTO TIME</div>
+            <div class="top-btn btn" (click)="setAutoTime()">AUTO TIME</div>
             <div class="top-btn btn" (click)="setTime()">MANUAL TIME</div>
         </div>
         
     <div class="time-container">
-            <app-time-value settingTime={{settingTime}} timeValue =12></app-time-value>
+
+            <app-time-value 
+                (incrementTimeValue)="increment('hours')" 
+                (decrementTimeValue)="decrement('hours')" 
+                settingTime={{settingTime}} 
+                timeValue ={{hours}}>
+            </app-time-value>
+
             <div class="colon">:</div>
-            <app-time-value settingTime={{settingTime}} timeValue =0></app-time-value>
+            
+            <app-time-value 
+                (incrementTimeValue)="increment('minutes')" 
+                (decrementTimeValue)="decrement('minutes')" 
+                settingTime={{settingTime}} 
+                timeValue ={{minutes}}>
+            </app-time-value>
+            
             <div class="colon">:</div>
-            <app-time-value settingTime={{settingTime}} timeValue =0></app-time-value> 
-            <div class="meridian">pm</div>   
+            
+            <app-time-value 
+                (incrementTimeValue)="increment('seconds')" 
+                (decrementTimeValue)="decrement('seconds')" 
+                settingTime={{settingTime}} 
+                timeValue ={{seconds}}>
+            </app-time-value> 
+            
+            <div class="meridiem">{{meridiem}}</div>
     </div>
-        <div class="bottom-btn btn">SET ALARM</div>
+        <div class="bottom-btn btn" (click)="setAlarm()">SET ALARM</div>
 </div>
 
 

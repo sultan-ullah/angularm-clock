@@ -25,7 +25,7 @@
     font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
-.meridian {
+.meridiem {
     padding: 5px;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     font-size: 2em;   
@@ -54,7 +54,7 @@
     user-select: none;
 }
 
-.top-btn, .bottom-btn {
+.btn {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1em;
     display: flex;
