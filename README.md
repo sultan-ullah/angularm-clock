@@ -1,27 +1,18 @@
-# AngularmClock
+# A(ng)ularm Clock
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
+A digital alarm clock emulator created with Angular 7, functionality includes setting manual time, retrieving the current time automatically and setting up an alarm to beep when the time matches.
 
-## Development server
+This project focused on clean UI design with minimalistic feel and a complimentary color scheme.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Lessons Learned
+- Angular 7: components, databinding
+- CSS FlexBox and box shadows
+- TypeScript syntax
+- Emmitting events
 
-## Code scaffolding
+## Live Demo
+https://sultan-ullah.github.io/angularm-clock/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## ToDo
+- Alarm sound plays locally but not on production (GitHub pages), need to fix this
+- Devices smaller that 400px (width of time display) cuts off may need to add media queries
