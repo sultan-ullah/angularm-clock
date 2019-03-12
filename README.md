@@ -14,5 +14,6 @@ This project focused on clean UI design with minimalistic feel and a complimenta
 https://sultan-ullah.github.io/angularm-clock/
 
 ## ToDo
+- Clean up code
 - Alarm sound plays locally but not on production (GitHub pages), need to fix this
 - Devices smaller that 400px (width of time display) cuts off may need to add media queries
