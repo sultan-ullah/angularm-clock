@@ -106,7 +106,7 @@ export class ClockComponent implements OnInit {
 
     let updateMinutes = () => {
       this.time.minutes++;
-      if (this.time.minutes == 5) {
+      if (this.time.minutes === 60) {
         this.time.minutes = 0;
         updateHours();
       }
@@ -114,7 +114,7 @@ export class ClockComponent implements OnInit {
 
     this.interval = setInterval(() => {
       this.time.seconds++;
-      if (this.time.seconds == 10) {
+      if (this.time.seconds === 60) {
         this.time.seconds = 0;
         updateMinutes();
       }
