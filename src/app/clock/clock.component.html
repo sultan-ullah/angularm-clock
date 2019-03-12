@@ -6,34 +6,43 @@
         
     <div class="time-container">
 
-            <app-time-value 
-                (incrementTimeValue)="increment('hours')" 
-                (decrementTimeValue)="decrement('hours')" 
-                settingTime={{settingTime}} 
-                timeValue ={{hours}}>
-            </app-time-value>
+        <app-time-value 
+            timeValue={{display.hours}}
+            settingTime={{settingTime}}
+            settingAlarm={{settingAlarm}}
+            (incrementTimeValue)="increment('hours')"
+            (decrementTimeValue)="decrement('hours')">
+        </app-time-value>
 
-            <div class="colon">:</div>
-            
-            <app-time-value 
-                (incrementTimeValue)="increment('minutes')" 
-                (decrementTimeValue)="decrement('minutes')" 
-                settingTime={{settingTime}} 
-                timeValue ={{minutes}}>
-            </app-time-value>
-            
-            <div class="colon">:</div>
-            
-            <app-time-value 
-                (incrementTimeValue)="increment('seconds')" 
-                (decrementTimeValue)="decrement('seconds')" 
-                settingTime={{settingTime}} 
-                timeValue ={{seconds}}>
-            </app-time-value> 
-            
-            <div class="meridiem">{{meridiem}}</div>
+        <div class="colon">:</div>
+
+        <app-time-value 
+            timeValue={{display.minutes}}
+            settingTime={{settingTime}}
+            settingAlarm={{settingAlarm}}
+            (incrementTimeValue)="increment('minutes')"
+            (decrementTimeValue)="decrement('minutes')">
+        </app-time-value>
+    
+ 
+        <div *ngIf="settingAlarm == 0" class="colon">:</div>
+
+        <app-time-value
+            *ngIf="settingAlarm == 0" 
+            timeValue={{display.seconds}}
+            settingTime={{settingTime}}
+            (incrementTimeValue)="increment('seconds')" 
+            (decrementTimeValue)="decrement('seconds')">
+        </app-time-value>
+
+        <div class="meridiem">{{display.meridiem}}</div>
+
     </div>
+
+            
+  
         <div class="bottom-btn btn" (click)="setAlarm()">SET ALARM</div>
+        <!-- <div class="bottom-btn btn" (click)="displayTime()">SET TIME</div> -->
 </div>
 
 
