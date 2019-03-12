@@ -12,7 +12,7 @@ export class ClockComponent implements OnInit {
     hours: number,
     minutes: number,
     seconds: number,
-    meridiem: string
+    meridiem: string;
   }
   
   time: {
