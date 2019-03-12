@@ -7,8 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TimeValueComponent implements OnInit {
   @Input() timeValue: number;
-  @Input() settingTime: boolean;
-  @Input() settingAlarm: boolean;
+  @Input() settingTime: number;
+  @Input() settingAlarm: number;
   @Output() incrementTimeValue = new EventEmitter();
   @Output() decrementTimeValue =  new EventEmitter();
 

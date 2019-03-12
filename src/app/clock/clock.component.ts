@@ -8,7 +8,12 @@ import { startTimeRange } from '@angular/core/src/profile/wtf_impl';
   styleUrls: ['./clock.component.css']
 })
 export class ClockComponent implements OnInit {
-  display: {}
+  display: {
+    hours: number,
+    minutes: number,
+    seconds: number,
+    meridiem: string
+  }
   
   time: {
     hours: number,
