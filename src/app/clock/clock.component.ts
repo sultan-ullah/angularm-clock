@@ -32,6 +32,7 @@ export class ClockComponent implements OnInit {
   settingTime: number = 0;
   settingAlarm: number = 0;
   interval: any;
+  alarmFlag: boolean = false;
 
   constructor() { }
 
@@ -95,16 +96,12 @@ export class ClockComponent implements OnInit {
         this.time.hours = 12;
         this.time.meridiem = (this.time.meridiem === "am") ? "pm" : "am";
       }
-      
-      if (this.alarm.meridiem == this.time.meridiem && this.alarm.hours === this.time.hours) {
-        setTimeout(() => {
-          let alarm = new Audio('../assets/alarm-sound.mp3');
-          alarm.play();
-        }, this.alarm.minutes * 60 * 1000);
-      }
     }
 
     let updateMinutes = () => {
+      if (this.alarmFlag === true) {
+        this.alarmFlag = false;
+      }
       this.time.minutes++;
       if (this.time.minutes === 60) {
         this.time.minutes = 0;
@@ -113,6 +110,12 @@ export class ClockComponent implements OnInit {
     }
 
     this.interval = setInterval(() => {
+      if (this.time.hours === this.alarm.hours && this.time.minutes === this.alarm.minutes && this.time.meridiem === this.alarm.meridiem && this.alarmFlag === false) {
+        this.alarmFlag = true;
+        let alarm = new Audio('../assets/alarm-sound.mp3');
+        alarm.play();
+      }
+
       this.time.seconds++;
       if (this.time.seconds === 60) {
         this.time.seconds = 0;
