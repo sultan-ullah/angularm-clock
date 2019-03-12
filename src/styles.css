@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-html {
-    overflow: hidden;
+html, body {
+    overflow-x: hidden;
 }
 
 body {
@@ -13,4 +13,5 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }

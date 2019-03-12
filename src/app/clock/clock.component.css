@@ -7,7 +7,7 @@
 }
 
 .time-container {
-    width: 400px;
+    width: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@
 .top-btn-group {
     display: flex;
     flex-direction: row;
-    width: 400px;
+    width: 320px;
     justify-content: space-between;
     margin-bottom: 20px;
     user-select: none;
@@ -47,7 +47,7 @@
 }
 
 .bottom-btn {
-    width: 400px;
+    width: 320px;
     height: 50px;
     margin-top: 20px;
     background: #C73E1D;
