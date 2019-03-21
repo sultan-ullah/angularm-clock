@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core'
-import { Time } from './time';
 
 @Pipe({name: 'formatTimeValue'})
 export class formatTimeValuePipe implements PipeTransform {

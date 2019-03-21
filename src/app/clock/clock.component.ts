@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Time } from '../time';
 import { startTimeRange } from '@angular/core/src/profile/wtf_impl';
 
 @Component({
