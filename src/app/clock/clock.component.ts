@@ -3,54 +3,26 @@ import { Time } from '../time';
 import { startTimeRange } from '@angular/core/src/profile/wtf_impl';
 
 @Component({
-  selector: 'app-clock',
+  selector: 'clock',
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.css']
 })
 export class ClockComponent implements OnInit {
-  display: {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    meridiem: string;
-  }
-  
-  time: {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    meridiem: string
-  }
-
-  alarm: {
-    hours: number,
-    minutes: number,
-    seconds: number
-    meridiem: string
-  }
+  display = null;
+  time = null;
+  alarm = null;
 
   settingTime: number = 0;
   settingAlarm: number = 0;
   interval: any;
-  alarmFlag: boolean = false;
+  
+  hoursMatch: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-
-    this.time = {
-      hours : 3,
-      minutes: 4,
-      seconds: 1,
-      meridiem: "am" 
-    }
-
-    this.alarm = {
-      hours : 4,
-      minutes: 5,
-      seconds: 6,
-      meridiem: "am"
-    }
+    this.time = {hours : 3, minutes: 4, seconds: 1, meridiem: "am" }
+    this.alarm = {hours : 4, minutes: 5, seconds: 6, meridiem: "am"}
     this.displayTime();
     this.startTime();
   }
@@ -92,6 +64,7 @@ export class ClockComponent implements OnInit {
 
     let updateHours = () => {
       this.time.hours++;
+
       if (this.time.hours == 13) {
         this.time.hours = 12;
         this.time.meridiem = (this.time.meridiem === "am") ? "pm" : "am";
@@ -99,24 +72,24 @@ export class ClockComponent implements OnInit {
     }
 
     let updateMinutes = () => {
-      if (this.alarmFlag === true) {
-        this.alarmFlag = false;
-      }
       this.time.minutes++;
+
+      if (this.time.minutes === this.alarm.minutes &&
+        this.time.hours === this.alarm.hours &&
+        this.time.meridiem === this.alarm.meridiem) {
+          this.playAlarm();
+        }
+
       if (this.time.minutes === 60) {
         this.time.minutes = 0;
         updateHours();
       }
     }
-
+    
     this.interval = setInterval(() => {
-      if (this.time.hours === this.alarm.hours && this.time.minutes === this.alarm.minutes && this.time.meridiem === this.alarm.meridiem && this.alarmFlag === false) {
-        this.alarmFlag = true;
-        let alarm = new Audio('../assets/alarm-sound.mp3');
-        alarm.play();
-      }
 
       this.time.seconds++;
+
       if (this.time.seconds === 60) {
         this.time.seconds = 0;
         updateMinutes();
@@ -167,130 +140,13 @@ export class ClockComponent implements OnInit {
       }
     }
   }
+
+  playAlarm(){
+    let audio = new Audio();
+    audio.src = "../../assets/alarm-sound.mp3";
+    audio.load();
+    audio.play();
+  }
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // setAlarm(): void {
-    // if (this.settingAlarm === false) {
-    //   clearInterval(this.intervalVal);
-    //   this.saved["hours"] = this.hours;
-    //   this.saved["minutes"] = this.minutes;
-    //   this.saved["seconds"] = this.seconds;
-
-    //   this.hours = this.alarmHours;
-    //   this.minutes = this.alarmMinutes;
-    //   this.seconds = this.alarmSeconds;
-    //   this.settingAlarm = true;
-    //   this.intervalVal = setInterval(this.updateSeconds, 1000);
-    // } else {
-    //   console.log(this.saved);
-    //   this.hours = this.saved["hours"];
-    //   this.minutes = this.saved["minutes"];
-    //   this.seconds = this.saved["seconds"];
-      
-    //   // this.startTime();
-    //   this.settingAlarm = false;
-    // }
-    // if (this.settingAlarm === false) {
-    //   this.saved["seconds"] = this.seconds;
-    //   this.seconds = this.alarmSeconds;
-    //   this.settingAlarm = true;
-    // } else {
-    //   this.seconds = this.saved["seconds"];
-    //   this.settingAlarm = false;
-    // }
-    
-
-   
-
-    
-  // }
-
-  // startTime(): void {
-  //   console.log("this.startTime() called")
-  //   this.settingTime = 0;
-  //   this.intervalVal = setInterval(this.updateSeconds, 1000);
-  // }
-
-  // setTime(): void {
-  //   clearInterval(this.intervalVal);
-  //   if (this.settingTime == 1) {
-  //     this.settingTime = 0;
-      // this.startTime();
-  //   } else {
-  //     this.settingTime = 1;
-  //   }
-  // }
-
-  // updateSeconds = () :void => {
-  //   if (this.settingAlarm === true) {
-  //     this.seconds = this.saved["seconds"];
-  //   }
-
-  //   this.seconds++;
-  //   if (this.seconds === 60) {
-  //       this.seconds = 0;
-        // this.updateMinutes();
-  //   }
-  // }
-
-  // updateMinutes(): void {
-  //   if (this.settingAlarm === true) {
-  //     this.minutes = this.saved["minutes"];
-  //   }
-
-  //   this.minutes++;
-  //   if (this.minutes === 60) {
-  //     this.minutes = 0;
-  //     this.updateHours();
-  //   }
-  // }
-
-  // updateHours(): void {
-  //   this.hours++;
-  //   if (this.hours == 13) {
-  //     this.hours = 1;
-  //     this.updateMeridiem();
-  //   }
-  // }
-
-  // updateMeridiem(): void {
-  //   this.meridiem = ( this.meridiem === "am") ? "pm" : "am";
-  // }
-
-
-
-  // setAutoTime(): void {
-  //   clearInterval(this.intervalVal);
-  //   console.log("Set auto time clicked");
-  //   let today: Date = new Date();
-  //   this.seconds = today.getSeconds();
-  //   this.minutes = today.getMinutes();
-  //   this.hours = (today.getHours() > 12) ? today.getHours() - 12 : today.getHours();
-  //   this.meridiem = (today.getHours() >= 12) ? "pm" : "am";
-  //   this.startTime();
-  // }
-// }

@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+}
+
+.up-arrow, .down-arrow {
+    cursor: pointer;
+}
+
+.value {
+    width: 100px;
+    font-size: 5em;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+}

@@ -1,4 +1,4 @@
-<!-- <div class="main-container"> -->
+<div class="main-container">
         <div class="top-btn-group">
             <div class="top-btn btn" (click)="setAutoTime()">AUTO TIME</div>
             <div class="top-btn btn" (click)="setTime()">MANUAL TIME</div>
@@ -24,7 +24,6 @@
             (decrementTimeValue)="decrement('minutes')">
         </app-time-value>
     
- 
         <div *ngIf="settingAlarm == 0" class="colon">:</div>
 
         <app-time-value
@@ -39,65 +38,5 @@
 
     </div>
 
-            
-  
         <div class="bottom-btn btn" (click)="setAlarm()">SET ALARM</div>
-        <!-- <div class="bottom-btn btn" (click)="displayTime()">SET TIME</div> -->
-<!-- </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container">
-
-    
-  <div class="value-container">
-      <i *ngIf="settingTime" class="fas fa-angle-up fa-xs" (click)="increment($event, 'seconds')"></i>
-      <div class="time-value">{{hours | formatTimeValue}}</div>
-      <i *ngIf="settingTime"  class="fas fa-angle-down fa-xs" (click)="decrement($event, 'seconds')"></i>
-  </div>
-
-  :
-
-  <div class="value-container">
-      <i *ngIf="settingTime"  class="fas fa-angle-up fa-xs" (click)="increment($event, 'minutes')"></i>
-      <div class="time-value">{{minutes | formatTimeValue}}</div>
-      <i *ngIf="settingTime"  class="fas fa-angle-down fa-xs" (click)="decrement($event, 'minutes')"></i>
-  </div>
-
-  :
-
-  <div class="value-container">
-      <i *ngIf="settingTime"  class="fas fa-angle-up fa-xs" (click)="increment($event, 'hours')"></i>
-      <div class="time-value">{{seconds | formatTimeValue}}</div>
-      <i *ngIf="settingTime"  class="fas fa-angle-down fa-xs" (click)="decrement($event, 'hours')"></i>
-  </div>
-
-  <div class="meridian">pm</div>
-
-
-
 </div>
-<div class="button-group">
-    <div class="button" (click)="setTime()">Set Time</div>
-    <div class="button" (click)="startTime()">Start Time</div>
-</div> -->

@@ -14,10 +14,7 @@ export class TimeValueComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    // this.settingTime = true;
-    // this.timeValue = 0;
-  }
+  ngOnInit() {}
 
   upArrowClicked() {
     this.incrementTimeValue.emit();
@@ -26,7 +23,4 @@ export class TimeValueComponent implements OnInit {
   downArrowClicked() {
     this.decrementTimeValue.emit();
   }
-
-
-
 }

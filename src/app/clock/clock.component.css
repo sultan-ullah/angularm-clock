@@ -1,13 +1,13 @@
 .main-container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
 }
 
 .time-container {
     width: 400px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,12 +21,12 @@
  }
 
 .colon {
-    font-size: 5em;
+    font-size: 4.5em;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
 .meridiem {
-    padding: 5px;
+    padding: 4.5px;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     font-size: 2em;   
 }
@@ -34,24 +34,26 @@
 .top-btn-group {
     display: flex;
     flex-direction: row;
-    width: 400px;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     user-select: none;
 }
 
 .top-btn {
-    flex-basis: 190px;
-    height: 50px;
+    width: 200px;
+    padding: 15px;
     background:#335C67;
+    border: 1px solid black;
+    box-sizing: border-box;
 }
 
 .bottom-btn {
     width: 400px;
-    height: 50px;
-    margin-top: 20px;
+    padding: 15px;
+    margin-top: 10px;
     background: #C73E1D;
     user-select: none;
+    box-sizing: border-box;
 }
 
 .btn {
@@ -64,11 +66,3 @@
     cursor: pointer;
     box-shadow: 4px 6px 5px black;   
 }
-
-
-
-
-
-
-
-
