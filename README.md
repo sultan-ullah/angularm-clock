@@ -12,7 +12,7 @@ This project focused on clean UI design with minimalistic feel and a complimenta
 - TypeScript syntax
 - Emmitting events
 
-![alt text](https://i.ibb.co/Qr7KxQ2/Screen-Shot-2019-03-20-at-9-25-06-PM.png)
+![alt text](https://i.ibb.co/s3JkKJh/Screen-Shot-2019-03-20-at-9-28-45-PM.png)
 
 
 
