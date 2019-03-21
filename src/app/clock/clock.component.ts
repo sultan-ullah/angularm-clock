@@ -143,7 +143,7 @@ export class ClockComponent implements OnInit {
 
   playAlarm(){
     let audio = new Audio();
-    audio.src = "../../assets/alarm-sound.mp3";
+    audio.src = "https://sultan-ullah.github.io/angularm-clock/assets/alarm-sound.mp3";
     audio.load();
     audio.play();
   }
